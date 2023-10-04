@@ -252,6 +252,7 @@ def dubins_segment(seg_param, seg_init, seg_type):
         seg_end[2] = seg_init[2]
 
     return seg_end
+
 '''
 pt1 = Waypoint(0, 0, 0) #(2907.413348590372, 2036.1739078317987,0)
 delta_x = 2907.413348590372
