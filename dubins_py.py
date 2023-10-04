@@ -163,6 +163,7 @@ def dubinsRLR(alpha, beta, d):
     tmp_rlr = (6 - d*d + 2*math.cos(alpha-beta) + 2*d*(math.sin(alpha)-math.sin(beta)))/8
     if(abs(tmp_rlr)>1):
         print('No RLR Path')
+        print(tmp_rlr)
         p=-1
         q=-1
         t=-1
@@ -194,11 +195,11 @@ def dubins_traj(param,step):
     length = (param.seg_final[0]+param.seg_final[1]+param.seg_final[2])*param.turn_radius
     length = math.floor(length/step)
     path = -1 * np.ones((length,3))
-
     while x < length:
         path[i] = dubins_path(param,x)
         x += step
         i+=1
+    print(path)
     return path
 
 
@@ -251,3 +252,29 @@ def dubins_segment(seg_param, seg_init, seg_type):
         seg_end[2] = seg_init[2]
 
     return seg_end
+'''
+pt1 = Waypoint(0, 0, 0) #(2907.413348590372, 2036.1739078317987,0)
+delta_x = 2907.413348590372
+delta_y = 2036.1739078317987
+pt2 = Waypoint(1000*(2907.361021023575 - delta_x), 1000*(2036.0699498092679 - delta_y),0)
+#pt3 = Waypoint(1000,15000,180)
+#pt4 = Waypoint(0,0,270)
+Wptz = [pt1, pt2]
+# Run the code
+i = 0
+while i<len(Wptz)-1:
+    param = calcDubinsPath(Wptz[i], Wptz[i+1], 10, 20)
+    path = dubins_traj(param,1)
+
+    # Plot the results
+    plt.plot(Wptz[i].x,Wptz[i].y,'kx')
+    plt.plot(Wptz[i+1].x,Wptz[i+1].y,'kx')
+    plt.plot(path[:,0],path[:,1],'b-')
+    i+=1
+plt.grid(True)
+plt.axis("equal")
+plt.title('Dubin\'s Curves Trajectory Generation')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.show()
+'''
