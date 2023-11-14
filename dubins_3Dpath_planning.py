@@ -300,8 +300,8 @@ if __name__ == '__main__':
     start_psi = np.deg2rad(10.0)
     start_gamma = np.deg2rad(-50.0) 
     
-    end_x = 4
-    end_y = 1
+    end_x = 15
+    end_y = 4
     end_z = -2
     end_psi = np.deg2rad(-10.0)
     end_gamma = np.deg2rad(-50.0) 
@@ -318,7 +318,7 @@ if __name__ == '__main__':
 #    end_psi = np.deg2rad(-10.0)
 #    end_gamma = np.deg2rad(-20.0)
     
-    Rmin = 1         
+    Rmin = 1        
     flag = 1
     try:
         px, py, pz, ppsi, pgamma, clen, mode = dubins_3Dpath_planning(start_x, start_y, start_z, start_psi, start_gamma,
@@ -327,6 +327,7 @@ if __name__ == '__main__':
         fig = plt.figure()
         ax = plt.axes(projection='3d')
         ax.plot3D(px, py, pz, 'black')
+        plt.show()
     except:
         print("NOT POSSIBLE")
     
