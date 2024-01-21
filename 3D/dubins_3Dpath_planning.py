@@ -303,23 +303,24 @@ if __name__ == '__main__':
     end_x = 15
     end_y = 4
     end_z = -2
-    end_psi = np.deg2rad(-10.0)
+    end_psi = np.deg2rad(10.0)
     end_gamma = np.deg2rad(-50.0) 
     
-#    start_x = 0
-#    start_y = 2
-#    start_z = -1
-#    start_psi = np.deg2rad(10.0)
-#    start_gamma = np.deg2rad(-50.0) 
-#    
-#    end_x = 4
-#    end_y = 1
-#    end_z = -2
-#    end_psi = np.deg2rad(-10.0)
-#    end_gamma = np.deg2rad(-20.0)
+    # start_x = 0
+    # start_y = 2
+    # start_z = -1
+    # start_psi = np.deg2rad(10.0)
+    # start_gamma = np.deg2rad(-50.0) 
     
-    Rmin = 1        
-    flag = 1
+    # end_x = 4
+    # end_y = 1
+    # end_z = -2
+    # end_psi = np.deg2rad(-10.0)
+    # end_gamma = np.deg2rad(-20.0)
+    
+    Rmin = 100 * 1e-3       
+    flag = 100
+
     try:
         px, py, pz, ppsi, pgamma, clen, mode = dubins_3Dpath_planning(start_x, start_y, start_z, start_psi, start_gamma,
                                                       end_x, end_y, end_z, end_psi, end_gamma, Rmin)

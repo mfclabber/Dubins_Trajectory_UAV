@@ -326,10 +326,10 @@ def main():
 #    ]  # [x,y,size(radius)]
     
     obstacleList = [
-        (3, 3, 1, 1.5),
+        (3, 3, 1, 0),
 #        (9, 8, 4, 1.5),
-        (4, 8, 3, 2),
-        (10, 4, 2, 1),
+        (4, 8, 3, 0),
+        (10, 4, 2, 0),
     ]  # [x,y,z,size(radius)]
     
 #    obstacleList = [
@@ -367,8 +367,8 @@ def main():
                 x = ox + size * np.outer(np.cos(u), np.sin(v))
                 y = oy + size * np.outer(np.sin(u), np.sin(v))
                 z = oz + size * np.outer(np.ones(np.size(u)), np.cos(v))
-                ax2.plot_surface(x, y, z, color='r')
-            ax.plot3D([x for (x, y, z) in path], [y for (x, y, z) in path], [z for (x, y, z) in path], '-k')
+                # ax2.plot_surface(x, y, z, color='r')
+            ax2.plot3D([x for (x, y, z) in path], [y for (x, y, z) in path], [z for (x, y, z) in path], '-k')
             plt.grid(True)
             plt.pause(0.001)    
             plt.show()
